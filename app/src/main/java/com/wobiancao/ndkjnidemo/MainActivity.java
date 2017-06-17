@@ -17,6 +17,6 @@ public class MainActivity extends AppCompatActivity {
         String ming = "13550110110";
         String encrypmi = JniUtils.encode(ming);
         String decrypmi = JniUtils.decode(encrypmi);
-        textView.setText("来自c的string是:" +  str + "\n加密前：" + ming + "\n加密后：" + encrypmi + "\n解密后：" + decrypmi);
+        textView.setText("The string from C is: " +  str + "\n\nBefore encryption：" + ming + "\n\nAfter encryption ：" + encrypmi + "\n\nAfter decryption：" + decrypmi);
     }
 }

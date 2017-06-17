@@ -54,13 +54,13 @@ public class JniUtils {
     }
 
 
-    /**加密**/
+    /**encryption**/
     public static String encode(String msg) {
         String str ="";
         try {
-            //用密钥和一组算法参数初始化此 cipher
+            //Initialize this cipher with a key and a set of algorithm parameters
             ecipher.init(Cipher.ENCRYPT_MODE,key,paramSpec);
-            //加密并转换成16进制字符串
+            //Encrypted and converted to a hexadecimal string
             str = asHex(ecipher.doFinal(msg.getBytes()));
         } catch (BadPaddingException e) {
         } catch (InvalidKeyException e) {
@@ -69,7 +69,7 @@ public class JniUtils {
         }
         return str;
     }
-    /**解密**/
+    /**Decrypted**/
     public static String decode(String value) {
         try {
             ecipher.init(Cipher.DECRYPT_MODE,key,paramSpec);
@@ -81,18 +81,18 @@ public class JniUtils {
         }
         return"";
     }
-    /**转16进制**/
+    /**Turn hexadecimal**/
     private static String asHex(byte buf[]) {
         StringBuffer strbuf =new StringBuffer(buf.length * 2);
         int i;
         for (i = 0;i <buf.length;i++) {
-            if (((int)buf[i] & 0xff) < 0x10)//小于十前面补零
+            if (((int)buf[i] & 0xff) < 0x10) //Less than ten in front of zero
                 strbuf.append("0");
             strbuf.append(Long.toString((int)buf[i] & 0xff, 16));
         }
         return strbuf.toString();
     }
-    /**转2进制**/
+    /**Turn binary**/
     private static byte[] asBin(String src) {
         if (src.length() < 1)
             return null;

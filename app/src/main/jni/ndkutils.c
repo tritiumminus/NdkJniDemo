@@ -10,7 +10,7 @@
  */
 JNIEXPORT jstring JNICALL Java_com_wobiancao_ndkjnidemo_ndk_JniUtils_getStringFormC
         (JNIEnv *env, jobject obj){
-    return (*env)->NewStringUTF(env,"这里是来自c的string");
+    return (*env)->NewStringUTF(env,"Hello World from C (not C++) in JNI/NDK environs");
 }
 const char keyValue[] = {
         21, 25, 21, -45, 25, 98, -55, -45, 10, 35, -45, 35,
